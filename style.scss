@@ -1,0 +1,165 @@
+$color-grey: #e4e4e4;
+
+input{
+  min-height: 32px;
+  padding: 6px 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+._container {
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.todo {
+  margin-top: 50px;
+
+  &__top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  &__table {
+    display: none;
+    width: 100%;
+    border-collapse: collapse;
+
+    &, th, td {
+      border: 1px solid;
+    }
+
+    th, td {
+      padding: 6px 5px;
+    }
+
+    th {
+      text-align: left;
+      background: $color-grey;
+    }
+
+    &-btn-remove {
+
+    }
+
+
+    &-actions {
+      width: 20%;
+      display: flex;
+
+      a {
+        & + a {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    &-btn-remove {
+
+    }
+
+    &-btn-edit {
+
+    }
+  }
+}
+
+.box-add {
+  border: 1px solid;
+  flex-basis: 400px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+
+  &__field {
+    flex-grow: 1;
+    border-radius: 2px;
+    border: 0px;
+    padding: 0 12px;
+  }
+
+  &__btn {
+    text-decoration: none;
+    padding: 7px 15px;
+    display: inline-block;
+    background: $color-grey;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    border-left: 1px solid;
+    color: black;
+    text-transform: uppercase;
+  }
+}
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #858585cc;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+
+
+  &._open {
+    //display: block;
+    opacity: 1;
+    visibility: visible;
+    .popup__content{
+      transform: translateY(20px);
+    }
+  }
+
+  &._close {
+    opacity: 0;
+    //display: none;
+  }
+
+  &__content{
+    margin: 40px auto;
+    max-width: 400px;
+    padding: 40px 20px;
+    //height: 200px;
+    background-color: #fff;
+    transition: transform 0.3s;
+
+  }
+  &__header{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__title{
+
+
+  }
+  &__body {
+    text-align: center;
+  }
+  &__field{
+    width: 100%;
+  }
+
+  &__footer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+
+
+}

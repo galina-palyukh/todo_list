@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="todo">
+    <div class="_container">
+        <div class="todo__wrapper">
+            <div class="todo__top">
+                <div class="todo__add-box box-add">
+                    <input class="box-add__field" type="text">
+                    <a href="#" class="btn box-add__btn">Create</a>
+                </div>
+
+            </div>
+
+            <div class="todo__body">
+                <table class="todo__table table table-todo" id="todo__table">
+                    <tr>
+                        <th>Title</th>
+                        <!--  <th>Progress</th>-->
+                        <th style="width: 200px">Actions</th>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="popup  edit-task-popup">
+    <div class="popup__content">
+
+        <div class="popup__header">
+            <h3 class="popup__title">Edit Task</h3>
+        </div>
+        <div class="popup__body">
+            <input  class="popup__field edit-task-popup__field" type="text">
+        </div>
+
+        <div class="popup__footer">
+            <a class="btn-cancel" href="#">Cancel</a>
+            <a class="btn-ok" href="#">OK</a>
+        </div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
