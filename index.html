@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>To Do List</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,6 +36,7 @@
     <div class="popup__content">
 
         <div class="popup__header">
+            <div class="popup__btn popup__btn_close edit-task-popup__btn-close">Х</div>
             <h3 class="popup__title">Edit Task</h3>
         </div>
         <div class="popup__body">
@@ -43,8 +44,8 @@
         </div>
 
         <div class="popup__footer">
-            <a class="btn-cancel" href="#">Cancel</a>
-            <a class="btn-ok" href="#">OK</a>
+            <button type="button" class="popup__btn popup__btn_cancel edit-task-popup__btn-cancel">Cancel</button>
+            <button type="button" class="popup__btn popup__btn_submit edit-task-popup__btn-submit">OK</button>
         </div>
     </div>
 

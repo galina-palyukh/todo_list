@@ -92,7 +92,7 @@ html, body {
   visibility: visible;
 }
 .popup._open .popup__content {
-  transform: translateY(20px);
+  transform: translateY(30px);
 }
 .popup._close {
   opacity: 0;
@@ -101,8 +101,10 @@ html, body {
   margin: 40px auto;
   max-width: 400px;
   padding: 40px 20px;
+  position: relative;
   background-color: #fff;
   transition: transform 0.3s;
+  transform: translateY(0);
 }
 .popup__header {
   text-align: center;
@@ -118,6 +120,28 @@ html, body {
   display: flex;
   justify-content: space-around;
   margin-top: 30px;
+}
+.popup__btn:hover {
+  cursor: pointer;
+}
+.popup__btn_cancel, .popup__btn_submit {
+  background: #e4e4e4;
+  border: none;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px 30px;
+  font-size: 14px;
+}
+.popup__btn_close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */
