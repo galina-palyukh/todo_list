@@ -9,6 +9,7 @@ input{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: monospace;
 }
 
 html, body {
@@ -40,7 +41,7 @@ html, body {
     }
 
     th, td {
-      padding: 6px 5px;
+      padding: 6px 10px;
     }
 
     th {
@@ -58,8 +59,9 @@ html, body {
       display: flex;
 
       a {
+        padding: 2px 6px;
         & + a {
-          margin-left: 10px;
+          margin-left: 5px;
         }
       }
     }
