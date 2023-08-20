@@ -10,24 +10,29 @@
 </head>
 <body>
 <div class="wrapper">
+
     <div class="todo">
         <div class="_container">
-            <div class="todo__wrapper">
+            <div class="todo__container">
+
                 <div class="todo__top">
                     <div class="todo__add-box box-add">
-                        <input class="box-add__field" type="text">
+                        <input class="box-add__field input" type="text">
                         <a href="#" class="btn box-add__btn">+</a>
                     </div>
 
                 </div>
 
                 <div class="todo__body">
-                    <table class="todo__table table table-todo" id="todo__table">
-                        <tr>
-                            <th>Title</th>
-                            <!--  <th>Progress</th>-->
-                            <th style="width: 200px">Date</th>
-                            <th style="width: 200px">Actions</th>
+
+                    <table class="todo__table table table-todo">
+
+                        <tr class="table-todo__row">
+                            <th class="table-todo__header table-todo__header-status" style="width: 50px"><input
+                                    type="checkbox"></th>
+                            <th class="table-todo__header table-todo__header-title">Title</th>
+                            <th class="table-todo__header table-todo__header-date" style="width: 200px">Date</th>
+                            <th class="table-todo__header table-todo__header-actions" style="width: 200px">Actions</th>
                         </tr>
 
                     </table>
@@ -38,7 +43,10 @@
     </div>
 </div>
 
+
 <div class="popup edit-task-popup">
+
+    <div class="popup__overlay"></div>
     <div class="popup__content">
 
         <div class="popup__header">
@@ -46,7 +54,7 @@
             <h3 class="popup__title">Edit Task</h3>
         </div>
         <div class="popup__body">
-            <input class="popup__field edit-task-popup__field" type="text">
+            <input class="popup__field edit-task-popup__field input" type="text">
         </div>
 
         <div class="popup__footer">

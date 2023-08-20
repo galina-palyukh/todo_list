@@ -1,6 +1,6 @@
 $color-grey: #e4e4e4;
 
-input{
+.input {
   min-height: 32px;
   padding: 6px 12px;
 }
@@ -22,6 +22,53 @@ html, body {
   margin: 0 auto;
 }
 
+.table-todo{
+  &__title{
+    position: relative;
+    display: inline;
+    &::before{
+      content: "";
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      background: #333;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-in-out;
+    }
+    &:hover{
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+
+  &__actions {
+    //width: 20%;
+    display: flex;
+
+    a {
+      padding: 2px 6px;
+
+      & + a {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &__btn-remove {
+  }
+
+  &__btn-edit {
+
+  }
+}
+
+
 .todo {
   margin-top: 50px;
 
@@ -33,46 +80,28 @@ html, body {
 
   &__table {
     display: none;
-    width: 100%;
-    border-collapse: collapse;
 
-    &, th, td {
-      border: 1px solid;
+  }
+}
+
+.table-todo{
+  width: 100%;
+  border-collapse: collapse;
+
+  &, th, td {
+    border: 1px solid;
+  }
+
+  th, td {
+    padding: 6px 10px;
+    &:first-child{
+      text-align: center;
     }
+  }
 
-    th, td {
-      padding: 6px 10px;
-    }
-
-    th {
-      text-align: left;
-      background: $color-grey;
-    }
-
-    &-btn-remove {
-
-    }
-
-
-    &-actions {
-      width: 20%;
-      display: flex;
-
-      a {
-        padding: 2px 6px;
-        & + a {
-          margin-left: 5px;
-        }
-      }
-    }
-
-    &-btn-remove {
-
-    }
-
-    &-btn-edit {
-
-    }
+  th {
+    text-align: left;
+    background: $color-grey;
   }
 }
 
@@ -110,30 +139,38 @@ html, body {
   right: 0;
   left: 0;
   bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: #858585cc;
   opacity: 0;
-  //height: 0;
   visibility: hidden;
   transition: opacity 0.3s;
 
 
   &._open {
     opacity: 1;
-    //height: 100%;
     visibility: visible;
-    .popup__content{
+
+    .popup__content {
       transform: translateY(30px);
     }
   }
 
   &._close {
     opacity: 0;
-    //display: none;
+
+    .popup__content {
+      transform: translateY(30px);
+    }
   }
 
-  &__content{
+  &__overlay {
+    background: #858585cc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__content {
     margin: 40px auto;
     max-width: 400px;
     padding: 40px 20px;
@@ -143,35 +180,38 @@ html, body {
     transition: transform 0.3s;
     transform: translateY(0);
   }
-  &__header{
+
+  &__header {
     text-align: center;
     margin-bottom: 30px;
   }
 
-  &__title{
+  &__title {
 
 
   }
+
   &__body {
     text-align: center;
   }
-  &__field{
+
+  &__field {
     width: 100%;
   }
 
-  &__footer{
+  &__footer {
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
   }
 
-  &__btn{
-    &:hover{
+  &__btn {
+    &:hover {
       cursor: pointer;
     }
 
     &_cancel,
-    &_submit{
+    &_submit {
       background: #e4e4e4;
       border: none;
       display: inline-block;
@@ -180,7 +220,8 @@ html, body {
       padding: 10px 30px;
       font-size: 14px;
     }
-    &_close{
+
+    &_close {
       position: absolute;
       right: 0;
       top: 0;
