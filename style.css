@@ -20,6 +20,9 @@ html, body {
   margin: 0 auto;
 }
 
+.table-todo__row._done .table-todo__title::before {
+  transform: scaleX(1);
+}
 .table-todo__title {
   position: relative;
   display: inline;
@@ -36,9 +39,6 @@ html, body {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease-in-out;
-}
-.table-todo__title:hover::before {
-  transform: scaleX(1);
 }
 .table-todo__actions {
   display: flex;

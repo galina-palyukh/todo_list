@@ -22,11 +22,25 @@ html, body {
   margin: 0 auto;
 }
 
-.table-todo{
-  &__title{
+.table-todo {
+
+  &__row {
+    &._done {
+
+
+      .table-todo__title {
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  &__title {
     position: relative;
     display: inline;
-    &::before{
+
+    &::before {
       content: "";
       top: 50%;
       left: 0;
@@ -38,11 +52,6 @@ html, body {
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease-in-out;
-    }
-    &:hover{
-      &::before {
-        transform: scaleX(1);
-      }
     }
   }
 
@@ -84,7 +93,7 @@ html, body {
   }
 }
 
-.table-todo{
+.table-todo {
   width: 100%;
   border-collapse: collapse;
 
@@ -94,7 +103,8 @@ html, body {
 
   th, td {
     padding: 6px 10px;
-    &:first-child{
+
+    &:first-child {
       text-align: center;
     }
   }
