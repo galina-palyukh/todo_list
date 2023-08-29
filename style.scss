@@ -11,6 +11,11 @@ $color-grey: #e4e4e4;
   box-sizing: border-box;
   font-family: monospace;
 }
+button,a{
+  &:hover{
+    cursor: pointer;
+  }
+}
 
 html, body {
   height: 100%;
@@ -86,6 +91,12 @@ html, body {
     justify-content: center;
     margin-bottom: 20px;
   }
+  &__btn-remove-all{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    padding: 0 10px;
+  }
 
   &__table {
     display: none;
@@ -132,7 +143,9 @@ html, body {
   &__btn {
     text-decoration: none;
     padding: 7px 15px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: $color-grey;
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
