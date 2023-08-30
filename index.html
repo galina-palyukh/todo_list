@@ -14,27 +14,40 @@
         <div class="_container">
             <div class="todo__container">
 
-                <div class="todo__top">
-                    <div class="todo__add-box box-add">
+                <div class="todo__header todo-header">
+                    <div class="todo-header__add-box box-add ">
                         <input class="box-add__field input" type="text">
                         <a href="#" class="btn box-add__btn">+</a>
                     </div>
-                    <button class="todo__btn-remove-all " type="button">Clear the List</button>
 
+                    <div class="todo-header__custom-select custom-select">
+
+                        <select class="select-sort-task">
+                            <option value="all">Select all:</option>
+                            <option value="active">Active</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <button class="todo-header__btn-remove-all " type="button">Clear the List</button>
                 </div>
 
                 <div class="todo__body">
 
-                    <table class="todo__table table table-todo"4. >
+                    <table class="todo__table table table-todo">
+                        <thead>
+
 
                         <tr class="table-todo__row">
-                            <th class="table-todo__header table-todo__header-status" style="width: 50px"><input class="checkbox  table-todo__status-common-input"
+                            <th class="table-todo__header table-todo__header-status" style="width: 50px"><input
+                                    class="checkbox  table-todo__status-common-input"
                                     type="checkbox"></th>
                             <th class="table-todo__header table-todo__header-title">Title</th>
                             <th class="table-todo__header table-todo__header-date" style="width: 200px">Date</th>
                             <th class="table-todo__header table-todo__header-actions" style="width: 200px">Actions</th>
                         </tr>
-
+                        </thead>
+                        <tbody></tbody>
                     </table>
                 </div>
 

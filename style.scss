@@ -11,10 +11,32 @@ $color-grey: #e4e4e4;
   box-sizing: border-box;
   font-family: monospace;
 }
-button,a{
-  &:hover{
+
+button, a {
+  &:hover {
     cursor: pointer;
   }
+}
+
+.custom-select {
+  //position: relative;
+  //border: 1px solid;
+
+  select {
+    //display: none;
+  }
+
+  //&::after {
+  //  content: "";
+  //  position: absolute;
+  //  top: 14px;
+  //  right: 10px;
+  //  width: 0;
+  //  height: 0;
+  //  display: inline-block;
+  //  border: 6px solid;
+  //  border-color: black transparent transparent transparent;
+  //}
 }
 
 html, body {
@@ -86,22 +108,40 @@ html, body {
 .todo {
   margin-top: 50px;
 
-  &__top {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  &__btn-remove-all{
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-    padding: 0 10px;
-  }
 
   &__table {
     display: none;
 
   }
+}
+
+.todo-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  min-height: 35px;
+  position: relative;
+
+  &__btn-remove-all {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  select{
+    height: 100%;
+    margin-left: 30px;
+  }
+  //&__custom-select {
+  //  //height: 100%;
+  //  margin-left: 30px;
+  //  flex-basis: 250px;
+  //
+  //
+  //}
 }
 
 .table-todo {
