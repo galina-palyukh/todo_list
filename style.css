@@ -81,6 +81,11 @@ html, body {
   margin-left: 30px;
 }
 
+.select-sort-task {
+  min-width: 120px;
+  text-align: center;
+}
+
 .table-todo {
   width: 100%;
   border-collapse: collapse;

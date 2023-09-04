@@ -134,6 +134,7 @@ html, body {
   select{
     height: 100%;
     margin-left: 30px;
+
   }
   //&__custom-select {
   //  //height: 100%;
@@ -142,6 +143,10 @@ html, body {
   //
   //
   //}
+}
+.select-sort-task{
+  min-width: 120px;
+  text-align: center;
 }
 
 .table-todo {
