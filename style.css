@@ -59,6 +59,11 @@ html, body {
 .todo__table {
   display: none;
 }
+.todo__pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
 
 .todo-header {
   display: flex;
@@ -129,6 +134,25 @@ html, body {
   border-left: 1px solid;
   color: black;
   text-transform: uppercase;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+.pagination__link {
+  display: block;
+  padding: 10px 15px;
+  margin-left: -1px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  text-decoration: none;
+  pointer-events: none;
+}
+.pagination__link._active {
+  background: red;
 }
 
 .popup {
