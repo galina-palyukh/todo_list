@@ -61,7 +61,7 @@ html, body {
 }
 .todo__pagination {
   margin-top: 30px;
-  display: flex;
+  display: none;
   justify-content: center;
 }
 
@@ -149,10 +149,13 @@ html, body {
   color: #000;
   border: 1px solid #000;
   text-decoration: none;
-  pointer-events: none;
+}
+.pagination__link:hover {
+  cursor: pointer;
 }
 .pagination__link._active {
   background: red;
+  pointer-events: none;
 }
 
 .popup {
