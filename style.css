@@ -157,6 +157,10 @@ html, body {
   background: red;
   pointer-events: none;
 }
+.pagination__link._disabled {
+  pointer-events: none;
+  background: lightgray;
+}
 
 .popup {
   position: fixed;

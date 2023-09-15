@@ -235,6 +235,11 @@ html, body {
       background: red;
       pointer-events: none;
     }
+    &._disabled{
+      pointer-events: none;
+      background: lightgray;
+
+    }
   }
 }
 
