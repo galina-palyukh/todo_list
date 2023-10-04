@@ -1,9 +1,13 @@
-$color-grey: #e4e4e4;
+$color-primary: #2294FF;
+$color-dark: #1a3153;
 
-.input {
-  min-height: 32px;
-  padding: 6px 12px;
-}
+$color-grey: #F2F2F2;
+$color-border-grey: #DDDDDD;
+
+//$color-success: #1ee54b;
+$color-success: #26ce32;
+
+
 
 * {
   margin: 0;
@@ -12,11 +16,145 @@ $color-grey: #e4e4e4;
   font-family: monospace;
 }
 
+html, body {
+  min-height: 100%;
+  font-size: 14px;
+  color: $color-dark;
+}
+
+
 button, a {
   &:hover {
     cursor: pointer;
   }
 }
+
+
+.checkbox {
+  //&_light {
+  //  .checkbox__text {
+  //    &::before {
+  //      border-color: #fff;
+  //    }
+  //  }
+  //}
+
+  input[type=checkbox] {
+    display: none;
+  }
+
+  &__text {
+
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 3px;
+      border: 1px solid $color-dark;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1), 0 0 0 rgba(203, 34, 237, .2);
+
+    }
+    &::before,
+    &::after {
+      transition: .3s;
+    }
+
+
+  }
+
+  &__text {
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+  }
+
+  &__input {
+    &:checked {
+      & + .checkbox__text::before {
+        border-color:  $color-success;
+        background: $color-success;
+        box-shadow: none;
+      }
+      & + .checkbox__text::after {
+        content: '';
+        width: 4px;
+        height: 8px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 7px;
+        top: 4px;
+      }
+    }
+  }
+
+}
+
+.btn {
+  border: none;
+  padding: 12px 15px;
+  transition: .2s;
+
+  &_danger {
+
+    background: #ff000040;
+
+    &:hover {
+      background: #ff00005c;
+    }
+  }
+}
+
+.input {
+  min-height: 32px;
+  padding: 6px 12px;
+}
+
+
+.select-wrap {
+  position: relative;
+  min-width: 120px;
+  text-align: center;
+  border-width: 0  0 1px 0;
+  border-style: solid;
+  border-color: $color-dark;
+
+  select {
+    appearance: none;
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 10px 25px 10px 15px;
+    &:focus{
+      outline: none;
+    }
+
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-width: 0 2px 2px 0 ;
+    border-style: solid;
+    border-color: $color-dark;
+    right: 10px;
+    top: 14px;
+    transform: rotate(45deg);
+
+  }
+
+}
+
 
 .custom-select {
   //position: relative;
@@ -39,9 +177,6 @@ button, a {
   //}
 }
 
-html, body {
-  min-height: 100%;
-}
 
 ._container {
   padding: 0 15px;
@@ -53,8 +188,6 @@ html, body {
 
   &__row {
     &._done {
-
-
       .table-todo__title {
         &::before {
           transform: scaleX(1);
@@ -88,10 +221,12 @@ html, body {
     display: flex;
 
     a {
-      padding: 2px 6px;
+      padding: 0px 6px;
+      font-size: 15px;
+      color: $color-dark;
 
       & + a {
-        margin-left: 5px;
+        margin-left: 6px;
       }
     }
   }
@@ -113,7 +248,8 @@ html, body {
     display: none;
 
   }
-  &__pagination{
+
+  &__pagination {
     margin-top: 30px;
     display: none;
     justify-content: center;
@@ -123,22 +259,20 @@ html, body {
 .todo-header {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
-  min-height: 35px;
+  margin-bottom: 40px;
+  min-height: 40px;
   position: relative;
 
   &__btn-remove-all {
     display: flex;
     align-items: center;
-    padding: 0 10px;
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
   }
 
-  select {
-    height: 100%;
+  &__select-wrap {
     margin-left: 30px;
 
   }
@@ -152,22 +286,23 @@ html, body {
   //}
 }
 
-.select-sort-task {
-  min-width: 120px;
-  text-align: center;
-}
 
 .table-todo {
   width: 100%;
   border-collapse: collapse;
 
-  &, th, td {
-    border: 1px solid;
+  tr {
+    &:nth-child(even) {
+      background: $color-grey;
+    }
   }
 
-  th, td {
-    padding: 6px 10px;
+  &, th, td {
+    border: 1px solid $color-border-grey;
+  }
 
+
+  th, td {
     &:first-child {
       text-align: center;
     }
@@ -175,36 +310,52 @@ html, body {
 
   th {
     text-align: left;
-    background: $color-grey;
+    background: $color-primary;
+    padding: 12px 12px;
+    color: #fff;
   }
+
+  td {
+    padding: 8px 12px;
+
+  }
+
 }
 
 .box-add {
-  border: 1px solid;
+  border-bottom: 1px solid $color-dark;
   flex-basis: 400px;
-  border-radius: 2px;
   display: flex;
   justify-content: space-between;
+  transition: .2s;
+
+  &._focus {
+    //border-color: $color-primary;
+  }
 
   &__field {
     flex-grow: 1;
-    border-radius: 2px;
-    border: 0px;
+    border: 0;
     padding: 0 12px;
+
+    &::placeholder {
+      color: $color-border-grey;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__btn {
     text-decoration: none;
-    padding: 7px 15px;
+    padding: 7px 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $color-grey;
-    border-bottom-right-radius: 2px;
-    border-top-right-radius: 2px;
-    border-left: 1px solid;
-    color: black;
-    text-transform: uppercase;
+    //color: $color-primary;
+    color: $color-dark;
+    font-size: 16px;
   }
 }
 
@@ -225,19 +376,24 @@ html, body {
     //color: #007bff;
     background-color: #fff;
     //border: 1px solid #dee2e6;
-    color: #000;
-    border: 1px solid #000;
+    color: $color-dark;
+    border: 1px solid $color-border-grey;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
       cursor: pointer;
     }
-    &._active{
-      background: red;
+
+    &._active {
+      background: $color-primary;
+      color: #fff;
       pointer-events: none;
     }
-    &._disabled{
+
+    &._disabled {
       pointer-events: none;
-      background: lightgray;
+      background: $color-grey;
+
 
     }
   }
