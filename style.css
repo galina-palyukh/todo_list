@@ -110,6 +110,19 @@ button:hover, a:hover {
   margin: 0 auto;
 }
 
+.table-todo__header-title, .table-todo__header-date {
+  position: relative;
+}
+.table-todo__header-title:hover, .table-todo__header-date:hover {
+  cursor: pointer;
+}
+.table-todo__header-sort-arrow {
+  display: inline-block;
+  position: absolute;
+  right: 14px;
+  color: #fff;
+  font-size: 15px;
+}
 .table-todo__row._done .table-todo__title::before {
   transform: scaleX(1);
 }
