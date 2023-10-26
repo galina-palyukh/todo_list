@@ -264,6 +264,11 @@ button, a {
       }
     }
   }
+  &__btn{
+    &:hover{
+      cursor: pointer;
+    }
+  }
 
   &__btn-remove {
   }

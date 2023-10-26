@@ -154,6 +154,9 @@ button:hover, a:hover {
 .table-todo__actions a + a {
   margin-left: 6px;
 }
+.table-todo__btn:hover {
+  cursor: pointer;
+}
 .todo {
   margin-top: 50px;
 }
