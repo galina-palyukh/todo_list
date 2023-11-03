@@ -1,100 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-<div class="wrapper">
-    <div class="todo">
-        <div class="_container">
-            <div class="todo__container">
 
-                <div class="todo__header todo-header">
-                    <div class="todo-header__add-box box-add ">
-                        <input class="box-add__field input" placeholder="Add Task" type="text">
-                        <a href="#" class="btn box-add__btn"><i class="fa-solid fa-plus"></i></a>
+    <div class="wrapper">__
+
+        <div class="todo">
+            <div class="_container">
+                <div class="todo__container">
+                    <div class="todo__header todo-header">
+                        <div class="todo-header__add-box box-add ">
+                            <input class="box-add__field input" placeholder="Add Task" type="text">
+                            <a href="#" class="btn box-add__btn"><i class="fa-solid fa-plus"></i></a>
+                        </div>
+
+                        <div class="todo-header__select-wrap select-wrap">
+
+                            <select class="todo-header__select select-filter-task">
+                                <option value="all">All</option>
+                                <option value="active">Active</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+
+                        <button class="todo-header__btn-remove-all  btn btn_danger" type="button">Clear the
+                            List</button>
                     </div>
 
-                    <div class="todo-header__select-wrap select-wrap">
+                    <div class="todo__body">
 
-                        <select class="todo-header__select select-filter-task">
-                            <option value="all">All</option>
-                            <option value="active">Active</option>
-                            <option value="completed">Completed</option>
-                        </select>
+                        <table class="todo__table table table-todo">
+                            <thead>
+
+                                <tr class="table-todo__row">
+                                    <th class="table-todo__header table-todo__header-status" style="width: 50px">
+
+                                        <label class="checkbox checkbox_light">
+                                            <input class="checkbox__input table-todo__status-common-input"
+                                                type="checkbox">
+                                            <span class="checkbox__text"></span>
+                                        </label>
+                                    </th>
+                                    <th class="table-todo__header table-todo__header-title" datatype="text">Title
+                                        <span class="table-todo__header-sort-arrow">
+                                            <i class="fa-solid fa-sort"></i>
+                                        </span>
+                                    </th>
+
+                                    <th class="table-todo__header table-todo__header-date" datatype="date"
+                                        style="width: 220px">
+                                        <span class="table-todo__header-sort-arrow"><i
+                                                class="fa-solid fa-sort"></i></span>
+                                        Date
+                                    </th>
+                                    <th class="table-todo__header table-todo__header-actions" style="width: 200px">
+                                        Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+
+                        <nav class="todo__pagination">
+                            <ul class="pagination"></ul>
+                        </nav>
+
                     </div>
 
-                    <button class="todo-header__btn-remove-all  btn btn_danger" type="button">Clear the List</button>
                 </div>
-
-                <div class="todo__body">
-
-                    <table class="todo__table table table-todo">
-                        <thead>
-
-                        <tr class="table-todo__row">
-                            <th class="table-todo__header table-todo__header-status" style="width: 50px">
-
-                                <label class="checkbox checkbox_light">
-                                    <input class="checkbox__input table-todo__status-common-input" type="checkbox">
-                                    <span class="checkbox__text"></span>
-                                </label>
-                            </th>
-                            <th class="table-todo__header table-todo__header-title" datatype="text">Title
-                                <span class="table-todo__header-sort-arrow">
-                                    <i class="fa-solid fa-sort"></i>
-                                </span>
-                            </th>
-
-                            <th class="table-todo__header table-todo__header-date" datatype="date" style="width: 220px">
-                                <span class="table-todo__header-sort-arrow"><i class="fa-solid fa-sort"></i></span>
-                                Date
-                            </th>
-                            <th class="table-todo__header table-todo__header-actions" style="width: 200px">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-
-
-                    <nav class="todo__pagination">
-                        <ul class="pagination"></ul>
-                    </nav>
-
-                </div>
-
             </div>
         </div>
     </div>
-</div>
 
 
-<div class="popup edit-task-popup">
+    <div class="popup edit-task-popup">
 
-    <div class="popup__overlay"></div>
-    <div class="popup__content">
+        <div class="popup__overlay"></div>
+        <div class="popup__content">
 
-        <div class="popup__header">
-            <div class="popup__btn popup__btn_close edit-task-popup__btn-close">Х</div>
-            <h3 class="popup__title">Edit Task</h3>
+            <div class="popup__header">
+                <div class="popup__btn popup__btn_close edit-task-popup__btn-close">Х</div>
+                <h3 class="popup__title">Edit Task</h3>
+            </div>
+            <div class="popup__body">
+                <input class="popup__field edit-task-popup__field input" type="text">
+            </div>
+
+            <div class="popup__footer color">
+                <button type="button" class="popup__btn popup__btn_cancel edit-task-popup__btn-cancel">Cancel</button>
+                <button type="button" class="popup__btn popup__btn_submit edit-task-popup__btn-submit">OK</button>
+            </div>
         </div>
-        <div class="popup__body">
-            <input class="popup__field edit-task-popup__field input" type="text">
-        </div>
 
-        <div class="popup__footer">
-            <button type="button" class="popup__btn popup__btn_cancel edit-task-popup__btn-cancel">Cancel</button>
-            <button type="button" class="popup__btn popup__btn_submit edit-task-popup__btn-submit">OK</button>
-        </div>
+        <header class="header">
+            <div class="header__logo">
+
+            </div>
+            <div class="header__list"></div>
+            
+          
+        </header>
+
     </div>
 
-</div>
-
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>

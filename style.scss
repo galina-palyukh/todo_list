@@ -8,6 +8,10 @@ $color-border-grey: #DDDDDD;
 $color-success: #26ce32;
 
 
+.color{
+  color: red;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +20,7 @@ $color-success: #26ce32;
 }
 
 html, body {
+  background: red;
   min-height: 100%;
   font-size: 14px;
   color: $color-dark;
@@ -28,16 +33,11 @@ button, a {
   }
 }
 
+.color{
+  font-size: 12px;
+}
 
 .checkbox {
-  //&_light {
-  //  .checkbox__text {
-  //    &::before {
-  //      border-color: #fff;
-  //    }
-  //  }
-  //}
-
   input[type=checkbox] {
     display: none;
   }
@@ -158,27 +158,6 @@ button, a {
 }
 
 
-.custom-select {
-  //position: relative;
-  //border: 1px solid;
-
-  select {
-    //display: none;
-  }
-
-  //&::after {
-  //  content: "";
-  //  position: absolute;
-  //  top: 14px;
-  //  right: 10px;
-  //  width: 0;
-  //  height: 0;
-  //  display: inline-block;
-  //  border: 6px solid;
-  //  border-color: black transparent transparent transparent;
-  //}
-}
-
 
 ._container {
   padding: 0 15px;
@@ -268,13 +247,6 @@ button, a {
     &:hover{
       cursor: pointer;
     }
-  }
-
-  &__btn-remove {
-  }
-
-  &__btn-edit {
-
   }
 }
 
@@ -368,10 +340,6 @@ button, a {
   justify-content: space-between;
   transition: .2s;
 
-  &._focus {
-    //border-color: $color-primary;
-  }
-
   &__field {
     flex-grow: 1;
     border: 0;
@@ -402,10 +370,6 @@ button, a {
   display: flex;
   list-style: none;
   padding-left: 0;
-
-  &__item {
-
-  }
 
   &__link {
     display: block;
@@ -491,10 +455,6 @@ button, a {
     margin-bottom: 30px;
   }
 
-  &__title {
-
-
-  }
 
   &__body {
     text-align: center;
