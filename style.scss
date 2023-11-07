@@ -7,11 +7,6 @@ $color-border-grey: #DDDDDD;
 //$color-success: #1ee54b;
 $color-success: #26ce32;
 
-
-.color{
-  color: red;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +15,6 @@ $color-success: #26ce32;
 }
 
 html, body {
-  background: red;
   min-height: 100%;
   font-size: 14px;
   color: $color-dark;
