@@ -5,15 +5,20 @@
   font-family: monospace;
 }
 
-html, body {
-  background: red;
-  min-height: 100%;
+html,
+body {
   font-size: 14px;
+  min-height: 100%;
   color: #1a3153;
 }
 
-button:hover, a:hover {
+button:hover,
+a:hover {
   cursor: pointer;
+}
+
+.color {
+  font-size: 12px;
 }
 
 .checkbox input[type=checkbox] {
@@ -21,9 +26,9 @@ button:hover, a:hover {
 }
 .checkbox__text::before {
   content: "";
-  display: inline-block;
   width: 18px;
   height: 18px;
+  display: inline-block;
   border-radius: 3px;
   border: 1px solid #1a3153;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 rgba(203, 34, 237, 0.2);
@@ -52,6 +57,9 @@ button:hover, a:hover {
   position: absolute;
   left: 7px;
   top: 4px;
+}
+.checkbox__input:disabled + .checkbox__text {
+  cursor: default;
 }
 
 .btn {
@@ -90,6 +98,9 @@ button:hover, a:hover {
 }
 .select-wrap select:focus {
   outline: none;
+}
+.select-wrap select:hover {
+  cursor: pointer;
 }
 .select-wrap::after {
   content: "";
@@ -178,6 +189,22 @@ button:hover, a:hover {
   min-height: 40px;
   position: relative;
 }
+.todo-header__add-form {
+  position: relative;
+}
+.todo-header__add-form::before {
+  content: "";
+  width: 0;
+  display: block;
+  height: 1px;
+  background: #2294ff;
+  position: absolute;
+  bottom: -1px;
+  transition: width 0.3s;
+}
+.todo-header__add-form._focus::before {
+  width: 100%;
+}
 .todo-header__btn-remove-all {
   display: flex;
   align-items: center;
@@ -195,17 +222,20 @@ button:hover, a:hover {
   border-collapse: collapse;
 }
 .table-todo tr:nth-child(even) {
-  background: #F2F2F2;
+  background: #f2f2f2;
 }
-.table-todo, .table-todo th, .table-todo td {
-  border: 1px solid #DDDDDD;
+.table-todo,
+.table-todo th,
+.table-todo td {
+  border: 1px solid #dddddd;
 }
-.table-todo th:first-child, .table-todo td:first-child {
+.table-todo th:first-child,
+.table-todo td:first-child {
   text-align: center;
 }
 .table-todo th {
   text-align: left;
-  background: #2294FF;
+  background: #2294ff;
   padding: 12px 12px;
   color: #fff;
 }
@@ -213,28 +243,28 @@ button:hover, a:hover {
   padding: 8px 12px;
 }
 
-.box-add {
+.form-add {
   border-bottom: 1px solid #1a3153;
   flex-basis: 400px;
   display: flex;
   justify-content: space-between;
   transition: 0.2s;
 }
-.box-add__field {
+.form-add__field {
   flex-grow: 1;
   border: 0;
   padding: 0 12px;
 }
-.box-add__field::-moz-placeholder {
-  color: #DDDDDD;
+.form-add__field::-moz-placeholder {
+  color: #dddddd;
 }
-.box-add__field::placeholder {
-  color: #DDDDDD;
+.form-add__field::placeholder {
+  color: #dddddd;
 }
-.box-add__field:focus {
+.form-add__field:focus {
   outline: none;
 }
-.box-add__btn {
+.form-add__btn {
   text-decoration: none;
   padding: 7px 12px;
   display: flex;
@@ -255,20 +285,20 @@ button:hover, a:hover {
   margin-left: -1px;
   background-color: #fff;
   color: #1a3153;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #dddddd;
   text-decoration: none;
 }
 .pagination__link:hover {
   cursor: pointer;
 }
 .pagination__link._active {
-  background: #2294FF;
+  background: #2294ff;
   color: #fff;
   pointer-events: none;
 }
 .pagination__link._disabled {
   pointer-events: none;
-  background: #F2F2F2;
+  background: #f2f2f2;
 }
 
 .popup {
@@ -347,4 +377,6 @@ button:hover, a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 18px;
+  color: #1a3153;
 }
