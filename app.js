@@ -1,18 +1,4 @@
-
 import { ConfirmPopup } from "./ConfirmPopup.js";
-import { User } from "./User.js"
-
-
-// const firstUser = new User("Halyna", 29);
-// alert(firstUser.greet());
-
-
-
-
-
-
-// myPopup.
-// myPopup.open();
 
 document.addEventListener("DOMContentLoaded", function () {
 
