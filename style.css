@@ -5,6 +5,10 @@
   font-family: monospace;
 }
 
+.popup__btn.popup__btn_submit.confirmation-popup__btn-submit:focus {
+  background-color: teal !important;
+}
+
 html,
 body {
   font-size: 14px;
@@ -334,7 +338,7 @@ a:hover {
 }
 .popup__content {
   margin: 40px auto;
-  max-width: 400px;
+  max-width: 450px;
   padding: 40px 20px;
   position: relative;
   background-color: #fff;
@@ -354,7 +358,7 @@ a:hover {
 .popup__footer {
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 .popup__btn:hover {
   cursor: pointer;

@@ -1,4 +1,19 @@
 
+import { ConfirmPopup } from "./ConfirmPopup.js";
+import { User } from "./User.js"
+
+
+// const firstUser = new User("Halyna", 29);
+// alert(firstUser.greet());
+
+
+
+
+
+
+// myPopup.
+// myPopup.open();
+
 document.addEventListener("DOMContentLoaded", function () {
 
 	// VARIABLES:
@@ -34,6 +49,16 @@ document.addEventListener("DOMContentLoaded", function () {
 	let editButtonClicked;
 	//END edit
 
+	//remove all
+	// const removeAllBtn = document.querySelector(".todo-header__btn-remove-all");
+	// const removeAllPopup = document.querySelector(".confirmation-remove-all-popup");
+	// const removeAllPopupBtnSubmit = document.querySelector(".confirmation-remove-all-popup__btn-submit");
+	// const removeAllPopupBtnCancel = document.querySelector(".confirmation-remove-all-popup__btn-cancel");
+	// const removeAllPopupBtnClose = document.querySelector(".confirmation-remove-all-popup__btn-close");
+	// const removeAllPopupOverlay = document.querySelector(".confirmation-remove-all-popup .popup__overlay");
+
+	//END remove all
+
 	//localStorage
 	const dynamicDataArr = JSON.parse(localStorage.getItem("rowsKey")) || [];
 	//END localStorage
@@ -49,6 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	//LISTENERS:
+
+	btnRemoveAllTasks.addEventListener("click", () => {
+		const removeAllTaskPopup = new ConfirmPopup("Title", "Are you sure you want to remove all tasks?", "Cancel", "OK", removeAllTasks);
+		removeAllTaskPopup.open();
+	})
+
 	addBtn.addEventListener("click", onclickAddTaskButton);
 	addInput.addEventListener("focus", () => addWrap.classList.add("_focus"));
 	addInput.addEventListener("blur", () => addWrap.classList.remove("_focus"));
@@ -62,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	editPopupBtnSubmit.addEventListener("click", editTaskSaveState);
 
 	editPopupField.addEventListener("keypress", (e) => {
+		console.log(e);
 		if (e.key === "Enter") {
 			editTaskSaveState();
 		}
@@ -71,11 +103,23 @@ document.addEventListener("DOMContentLoaded", function () {
 	editPopupBtnClose.addEventListener("click", closeEditPopup);
 	editPopupOverlay.addEventListener("click", closeEditPopup);
 
-	btnRemoveAllTasks.addEventListener("click", removeAllTasks);
 
 	commonInputStatus.addEventListener("click", setCommonStatus);
 
 	filterOptions.addEventListener("change", () => setPage(1, filterAndSortTask(dynamicDataArr)));
+
+
+	// removeAllBtn.addEventListener("click", openPopup(removeAllPopup));
+	// //FIXME  
+	// removeAllPopupBtnSubmit.addEventListener("click", function() {
+	// 	removeAllTasks();
+	// 	closePopup(removeAllPopup);
+	// }); 
+
+	// removeAllPopupBtnClose.addEventListener("click", closePopup(removeAllPopup));
+	// removeAllPopupBtnCancel.addEventListener("click", closePopup(removeAllPopup));
+	// removeAllPopupOverlay.addEventListener("click", closePopup(removeAllPopup));
+
 
 	//END LISTENERS
 
@@ -264,9 +308,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		row.appendChild(actions);
 
 		const removeBtn = actions.querySelector(".table-todo__btn-remove");
-		removeBtn.addEventListener("click", removeTask);
+
+
+		removeBtn.addEventListener("click", (e) => {
+			const removeTaskConfirmPopup = new ConfirmPopup("Title", `Are you sure you want to remove the task: «${boxTitle.innerHTML}»?`, "Cancel", "OK", function() {
+				removeTask.call(removeBtn, e);
+			});
+			removeTaskConfirmPopup.open();
+		});
 
 		const editBtn = actions.querySelector(".table-todo__btn-edit");
+
 		editBtn.addEventListener("click", editTask);
 	}
 	//END add new Task
@@ -320,19 +372,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	function removeTask(e) {
 		e.preventDefault();
 
-		// const rowClicked = this.closest("tr");
-		// const title = rowClicked.querySelector(".table-todo__title").innerHTML;
-		// const date = rowClicked.querySelector(".table-todo__date").innerHTML;
-
-		// const indexRow = dynamicDataArr.indexOf(dynamicDataArr.find(el => el.title === title && el.date === date));
-
-		// function findIndexOFTaskById(btn){
-		// 	const rowEditedTask = btn.closest("tr");
-		// 	const idTask = rowEditedTask.id;
-		// 	const indexRow = dynamicDataArr.findIndex(el => el.id === idTask);
-		// 	return indexRow;
-		// }
-
 		dynamicDataArr.splice(findIndexOFTaskById(this), 1);
 		localStorage.setItem("rowsKey", JSON.stringify(dynamicDataArr));
 
@@ -361,7 +400,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		setPage(1, dynamicDataArr);
 
 	}
-
 	//END remove all Tasks
 
 
@@ -403,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	function checkCommonStatus(array) {
 
-		if(array.length === 0){
+		if (array.length === 0) {
 			commonInputStatus.disabled = true;
 			commonInputStatus.checked = false;
 			return;
@@ -431,10 +469,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		setPage(1, filterAndSortTask(dynamicDataArr));
 	}));
 
-	function getNextSortState(state){
+
+	function getNextSortState(state) {
 		const states = ["asc", "desc", "default"];
 		const index = states.indexOf(state);
-		return states.length-1 !== index? states[index+1] : states[0];
+		return states.length - 1 !== index ? states[index + 1] : states[0];
 	}
 
 	function setThSortState(th, state) {
@@ -521,6 +560,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	}
 	//END sorting and filtering
+
+
+	// general functions
 
 
 	function fromDateAndTimeToMilliseconds(date) {

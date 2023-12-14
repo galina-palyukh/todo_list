@@ -12,7 +12,11 @@ $color-success: #26ce32;
 	box-sizing: border-box;
 	font-family: monospace;
 }
-
+.popup__btn.popup__btn_submit.confirmation-popup__btn-submit{
+	&:focus{
+		background-color: teal !important;
+	}
+}
 html,
 body {
 	font-size: 14px;
@@ -431,7 +435,7 @@ a {
 
 	&__content {
 		margin: 40px auto;
-		max-width: 400px;
+		max-width: 450px;
 		padding: 40px 20px;
 		position: relative;
 		//height: 200px;
@@ -456,7 +460,7 @@ a {
 	&__footer {
 		display: flex;
 		justify-content: space-around;
-		margin-top: 30px;
+		margin-top: 40px;
 	}
 
 	&__btn {
